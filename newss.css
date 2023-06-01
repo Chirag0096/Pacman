@@ -1,0 +1,67 @@
+body{
+    margin:0;
+    padding:0;
+    background:#415a77;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:"montserrat",sans-serif;
+}
+#loadeer{
+    background:#415a77 url('https://i.gifer.com/origin/cb/cbf0a6ce1b6608714d6b65714fca91ee_w200.gif') no-repeat center center;
+    background-size: 30%;
+    height:100vh;
+    width:100%;
+    position:fixed;
+    z-index: 100;
+}
+
+header{
+    background-color: rgb(1, 1, 35);
+    background-position: center;
+    background-size: 90%;
+    width: 100dvw;
+    height: 100vh;
+    object-fit: cover;
+    position:relative;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom:0;
+    background-color: lightslategray;
+    color:rgb(7, 17, 38);
+    padding: 0 1%;
+
+}
+
+.logo{
+    width:200px;
+}
+
+nav{
+    display:flex;
+    align-items: center;
+    padding:20px 0;
+}
+
+.navbar h1{
+    font-size:75px;
+    margin-top: 12%;
+    margin-right: 10%;
+}
+
+.navbar button{
+   
+        background-color: #08426b;
+        border: 2px solid black;
+        top: 50px;
+        color: #fff;
+        padding: 5px 10px 30px 30px;
+        text-align: center;
+        display: inline-block;
+        font-size: 40px;
+        margin: 10px 30px;
+        cursor: pointer;
+        text-align:center;
+    }

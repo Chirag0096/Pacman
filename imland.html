@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacman</title> 
+    <link rel="stylesheet" href="newss.css">
+    
+</head>
+
+<body>
+    <header>
+        <img src="3dpacc.jpg" width="100%">
+        <h1 style="color:rgb(7, 37, 74);font-size:90px;font-style: italic;text-align: center;font-weight: bold;">Pac-Man : Classic Arcade</h1> 
+       <p style="text-align: center;"><img src="gghost.gif"> </p>
+        <div class="navbar">
+           
+         <a href='index.html'>
+        <img src="rplqyy.png" width="286" height="282" alt="Play pac man" class="content-img"> </a> 
+         <a href="about.html"><button>About Pacman</button></a>
+         <a href="how.html"><button>Instructions</button></a>
+        <div class="audio-container">
+                <body onclick="document.getElementsByTagName('audio')[0].play()">
+                    <audio src="pacman_beginning.wav">
+                  </body>
+            </div>
+        </div>
+    </header>
+
+    <div id="loadeer">
+     
+    </div>
+    <script>
+        
+        var loader=document.getElementById("loadeer");
+        window.addEventListener("load",function(load){
+            window.removeEventListener('load', load, false);               
+  setTimeout(function(){loader.style.display = 'none'},2000);
+
+},false);
+                
+        
+    </script>
+    
+</body>
+</html>
