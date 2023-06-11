@@ -27,7 +27,7 @@ let pacman;
 let oneBlockSize = 20;
 let score = 0;
 let ghosts = [];
-let wallSpaceWidth = oneBlockSize / 1.6;
+let wallSpaceWidth = oneBlockSize / 1.5;
 let wallOffset = (oneBlockSize - wallSpaceWidth) / 2;
 let wallInnerColor = "black";
 
@@ -45,7 +45,7 @@ let map = [
     [1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1],
     [0, 0, 0, 0, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 0, 0, 0, 0],
     [1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 2, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1],
-    [2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2],
+    [1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1],
     [1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 2, 2, 1, 2, 1, 2, 1, 1, 1, 1, 1],
     [0, 0, 0, 0, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 0, 0, 0, 0],
     [0, 0, 0, 0, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 0, 0, 0, 0],
@@ -59,6 +59,7 @@ let map = [
     [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
+
 
 let randomTargetsForGhosts = [
     { x: 1 * oneBlockSize, y: 1 * oneBlockSize },
@@ -85,10 +86,19 @@ let createNewPacman = () => {
         oneBlockSize / 5
     );
 };
-
+let gameOver = false;
 let gameLoop = () => {
-    update();
-    draw();
+    if (lives > 0) {
+        update();
+        draw();
+    } else {
+        clearInterval(gameInterval);
+        // Game over logic or additional actions can be added here
+        canvasContext.font = "30px Emulogic";
+        canvasContext.fillStyle = "white";
+        canvasContext.fillText("Game Over", canvas.width / 2 - 80, canvas.height / 2);
+        return;
+    }
 };
 
 let gameInterval = setInterval(gameLoop, 1000 / fps);
@@ -102,6 +112,7 @@ let onGhostCollision = () => {
     lives--;
     restartPacmanAndGhosts();
     if (lives == 0) {
+    gameOver=True
     }
 };
 
